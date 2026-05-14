@@ -1,56 +1,60 @@
-﻿import logo from "../assets/images/logo.jpeg";
+﻿import React, { useState } from "react";
+import "../App.css";
+import logo from "../assets/images/logo.jpeg";
 
-const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Walkthrough", href: "#gallery" },
-  { label: "Plan", href: "#floorplans" },
-  { label: "Location", href: "#location" },
-  { label: "About Us", href: "#about" },
-];
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export default function Navbar() {
+  const navItems = [
+    "Overview",
+    "Amenities",
+    "Walkthrough",
+    "Gallery",
+    "Plan",
+    "Location",
+    "About Us",
+  ];
+
   return (
-    <header className="site-header">
-      <div className="top-bar">
-        <div className="top-item">📍 Bongaigaon, Guwahati</div>
-        <div className="top-item">📞 +91 9854041000</div>
-        <div className="top-item">⏰ Mon - Sat : 10:00 AM - 7:00 PM</div>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-logo-box">
+          <img src={logo} alt="Subham Park Bongaigaon Logo" className="navbar-logo" />
 
-        <div className="top-icons">
-          <a href="/" aria-label="Facebook">f</a>
-          <a href="/" aria-label="Instagram">i</a>
-          <a href="/" aria-label="WhatsApp">w</a>
-        </div>
-      </div>
-
-      <div className="header-inner">
-        <a href="#hero" className="brand">
-          <img src={logo} alt="Subham Park Bongaigaon Logo" />
-          <div>
-            <span>Luxury Living</span>
-            <strong>Subham Park Bongaigaon</strong>
+          <div className="brand-text">
+            <h1>Subham Park</h1>
+            <p>Bongaigaon</p>
           </div>
+        </div>
+
+        <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
+          {navItems.map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a href="#contact" className="navbar-btn">
+          Enquire Now
         </a>
 
-        <nav className="nav-links">
-          {navLinks.map((link) => (
-            <a href={link.href} key={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="header-actions">
-          <a href="#contact" className="brochure-btn">
-            Download Brochure ↗
-          </a>
-        </div>
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-
-      <div className="header-accent">
-        <div className="accent-leaf">❦</div>
-      </div>
-    </header>
+    </nav>
   );
-}
+};
+
+export default Navbar;

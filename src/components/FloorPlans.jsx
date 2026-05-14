@@ -1,122 +1,98 @@
-﻿import footerBg from "../assets/images/footer-bg.png";
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight, Map } from "lucide-react";
+import "../App.css";
 
-export default function Footer() {
-  const links = [
-    "Home",
-    "About Project",
-    "Amenities",
-    "Floor Plans",
-    "Gallery",
-    "Location Advantage",
-    "Testimonials",
-    "Contact",
+import map1 from "../assets/images/map1.jpeg";
+import map2 from "../assets/images/map2.jpeg";
+import map3 from "../assets/images/map3.jpeg";
+import map4 from "../assets/images/map4.jpeg";
+
+const FloorPlans = () => {
+  const plans = [
+    { image: map1, title: " Floor Plan" },
+    { image: map2, title: " Floor Plan" },
+    { image: map3, title: " Floor Plan" },
+    { image: map4, title: " Floor Plan" },
   ];
 
+  const [active, setActive] = useState(0);
+
+  const prevSlide = () => {
+    setActive(active === 0 ? plans.length - 1 : active - 1);
+  };
+
+  const nextSlide = () => {
+    setActive(active === plans.length - 1 ? 0 : active + 1);
+  };
+
+  const leftIndex = active === 0 ? plans.length - 1 : active - 1;
+  const rightIndex = active === plans.length - 1 ? 0 : active + 1;
+
   return (
-    <footer className="luxury-footer">
-      <div
-        className="luxury-footer-bg"
-        style={{ backgroundImage: `url(${footerBg})` }}
-      >
-        <div className="luxury-footer-overlay">
-          <div className="luxury-footer-top">
-            <div className="footer-brand-block">
-              <p className="footer-label">SUBHAM BUILDERS</p>
-
-              <h2>
-                Building Trust.
-                <span>Crafting Dreams.</span>
-              </h2>
-
-              <p className="footer-text">
-                Creating premium residences with elegant architecture,
-                thoughtful planning, and lasting value for generations.
-              </p>
-
-              <div className="footer-socials">
-                <a href="#">f</a>
-                <a href="#">◎</a>
-                <a href="#">in</a>
-                <a href="#">▶</a>
-              </div>
-            </div>
-
-            <div className="footer-links-block">
-              <h3>Quick Links</h3>
-              <ul>
-                {links.map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="footer-contact-block">
-              <h3>Contact Details</h3>
-
-              <div className="footer-contact-item">
-                <span>☎</span>
-                <div>
-                  <strong>Phone</strong>
-                  <p>9854641000</p>
-                  <p>0361 234 2344</p>
-                </div>
-              </div>
-
-              <div className="footer-contact-item">
-                <span>✉</span>
-                <div>
-                  <strong>Email</strong>
-                  <p>info@subhamgroup.com</p>
-                </div>
-              </div>
-
-              <div className="footer-contact-item">
-                <span>⌖</span>
-                <div>
-                  <strong>Address</strong>
-                  <p>
-                    Subham Park, Near Durga Mandir, Chapaguri Road,
-                    Bongaigaon, Assam.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-stats-bar">
-            <div className="footer-stat">
-              <span>15+</span>
-              <p>Years of Excellence</p>
-            </div>
-
-            <div className="footer-stat">
-              <span>25+</span>
-              <p>Projects Completed</p>
-            </div>
-
-            <div className="footer-stat">
-              <span>5000+</span>
-              <p>Happy Families</p>
-            </div>
-
-            <div className="footer-stat">
-              <span>100%</span>
-              <p>Commitment to Quality</p>
-            </div>
-          </div>
-
-          <div className="footer-bottom-bar">
-            <p>© 2026 Subham Builders. All Rights Reserved.</p>
-
-            <div>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms & Conditions</a>
-            </div>
-          </div>
+    <section className="floorplan-section" id="plan">
+      <div className="floorplan-header">
+        <div className="floorplan-label">
+          <span></span>
+          <p>Floor Plan</p>
+          <span></span>
         </div>
+
+        <h2>
+          Smart Layouts for <br />
+          <strong>Modern Living.</strong>
+        </h2>
+
+        <p>
+          Explore thoughtfully designed floor plans crafted for comfort,
+          privacy, and everyday convenience.
+        </p>
       </div>
-    </footer>
+
+      <div className="floorplan-slider">
+        <button className="floor-arrow left" onClick={prevSlide}>
+          <ChevronLeft size={26} />
+        </button>
+
+        <div className="floor-side-card floor-left">
+          <div className="floor-card-title">
+            <Map size={18} />
+            <span>{plans[leftIndex].title}</span>
+          </div>
+          <img src={plans[leftIndex].image} alt={plans[leftIndex].title} />
+        </div>
+
+        <div className="floor-main-card">
+          <div className="floor-card-title">
+            <Map size={20} />
+            <span>{plans[active].title}</span>
+          </div>
+          <img src={plans[active].image} alt={plans[active].title} />
+        </div>
+
+        <div className="floor-side-card floor-right">
+          <div className="floor-card-title">
+            <Map size={18} />
+            <span>{plans[rightIndex].title}</span>
+          </div>
+          <img src={plans[rightIndex].image} alt={plans[rightIndex].title} />
+        </div>
+
+        <button className="floor-arrow right" onClick={nextSlide}>
+          <ChevronRight size={26} />
+        </button>
+      </div>
+
+      <div className="floor-dots">
+        {plans.map((_, index) => (
+          <button
+            key={index}
+            className={active === index ? "active" : ""}
+            onClick={() => setActive(index)}
+          ></button>
+        ))}
+      </div>
+    </section>
   );
-}
+};
+
+export default FloorPlans;

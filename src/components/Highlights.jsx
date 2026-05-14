@@ -1,24 +1,29 @@
-﻿export default function Highlights() {
-  const marqueeItems = [
-    "Premium Living Begins Here",
-    "Step Into A World Designed For Comfort",
-    "Luxury Residences In Bongaigaon",
-    "Modern Amenities For Everyday Life",
-    "Green Spaces • Secure Living",
+﻿import React from "react";
+import "../App.css";
+
+const Highlights = () => {
+  const items = [
+    "Luxury Residences in Bongaigaon",
+    "Modern Amenities for Everyday Life",
+    "Peaceful Green Surroundings",
+    "Premium 3 BHK & 4 BHK Homes",
+    "A Lifestyle Upgrade",
   ];
 
   return (
-    <section id="highlights" className="highlight-marquee-section">
+    <section className="highlight-marquee-section">
       <div className="highlight-marquee">
         <div className="highlight-track">
-          {[...marqueeItems, ...marqueeItems].map((item, index) => (
-            <span className="highlight-item" key={index}>
-              {item}
-              <b>⌁</b>
-            </span>
+          {[...items, ...items].map((item, index) => (
+            <div className="highlight-item" key={index}>
+              <span>{item}</span>
+              <i></i>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Highlights;

@@ -2,14 +2,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import AboutProject from "./components/AboutProject";
 import Highlights from "./components/Highlights";
+import AboutProject from "./components/AboutProject";
 import Amenities from "./components/Amenities";
+import Walkthrough from "./components/Walkthrough";
 import Gallery from "./components/Gallery";
 import LocationAdvantage from "./components/LocationAdvantage";
-import WhyChooseUs from "./components/WhyChooseUs";
+import FloorPlans from "./components/FloorPlans"; 
 import AboutBuilder from "./components/AboutBuilder";
-import Testimonials from "./components/Testimonials";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
@@ -18,21 +18,20 @@ function App() {
     <div className="app-shell">
       <Navbar />
       <Hero />
+      <Highlights />
 
       <main className="page-shell">
         <AboutProject />
-        <Highlights />
         <Amenities />
+        <Walkthrough />
         <Gallery />
         <LocationAdvantage />
-        <WhyChooseUs />
+        <FloorPlans /> 
         <AboutBuilder />
-        <Testimonials />
         <ContactForm />
       </main>
 
       <Footer />
-
     </div>
   );
 }

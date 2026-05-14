@@ -1,72 +1,103 @@
-﻿import heroBg from "../assets/images/herosectionbg.png";
+﻿import React from "react";
+import {
+  MapPin,
+  Building2,
+  Layers,
+  Home,
+  Dumbbell,
+  ArrowRight,
+  PlayCircle,
+  Phone,
+} from "lucide-react";
+import "../App.css";
+import heroImage from "../assets/images/herosectionimage.png";
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="hero-section"
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
-      <div className="hero-overlay"></div>
+    <>
+      <section className="hero" id="overview">
+        <div className="hero-leaf-bg"></div>
 
-      <div className="hero-content">
-        <div className="hero-copy">
-          <div className="hero-logo-mark">❦</div>
+        <div className="hero-content">
+          <div className="hero-badge">
+            <span></span>
+            Quiet Luxury Living
+            <span></span>
+          </div>
 
           <h1>
-            Subham Park
-            <span>Bongaigaon</span>
+            Step Into <br />
+            <strong>Spotlight</strong> <br />
+            of Modern Living
           </h1>
 
-          <h2>
-            Elevated Living,
-            <br />
-            <span>Everyday Bliss</span>
-          </h2>
+          <div className="hero-line">
+            <span></span>
+            <i></i>
+            <span></span>
+          </div>
 
           <p>
-            Premium 2.5 | 3 | 3.5 BHK Apartments
-            <br />
-            Designed for Comfort. Built for Life.
+            Imagine a life where everything you need is just a step away.
+            Bongaigaon’s most coveted address offers you just that. Built in a
+            prime location with the best of modern amenities, it’s not just a
+            home; it’s a lifestyle upgrade.
           </p>
 
-          <div className="hero-features">
-            <div>
-              <span>⌖</span>
-              <strong>Prime</strong>
-              <small>Location</small>
+          <div className="hero-details">
+            <div className="detail-item">
+              <Building2 size={22} />
+              <span>1 Residential Tower</span>
             </div>
 
-            <div>
-              <span>▦</span>
-              <strong>Modern</strong>
-              <small>Amenities</small>
+            <div className="detail-item">
+              <MapPin size={22} />
+              <span>Site Area: 28800 Sq.Ft. Approx</span>
             </div>
 
-            <div>
-              <span>☑</span>
-              <strong>24x7</strong>
-              <small>Security</small>
+            <div className="detail-item">
+              <Layers size={22} />
+              <span>G+7 Storeys</span>
             </div>
 
-            <div>
-              <span>♧</span>
-              <strong>Green</strong>
-              <small>Environment</small>
+            <div className="detail-item">
+              <Home size={22} />
+              <span>48 Spacious Flats</span>
+            </div>
+
+            <div className="detail-item">
+              <Home size={22} />
+              <span>3 BHK & 4 BHK</span>
+            </div>
+
+            <div className="detail-item">
+              <Dumbbell size={22} />
+              <span>Club House</span>
             </div>
           </div>
 
-          <div className="hero-cta">
+          <div className="hero-buttons">
             <a href="#contact" className="hero-btn primary">
-              Book A Site Visit <span>→</span>
+              Enquire Now <ArrowRight size={18} />
             </a>
 
-            <a href="#floorplans" className="hero-btn secondary">
-              ⬇ Download Brochure
+            <a href="#walkthrough" className="hero-btn secondary">
+              View Walkthrough <PlayCircle size={19} />
             </a>
           </div>
         </div>
-      </div>
-    </section>
+
+        <div className="hero-image-wrap">
+          <img src={heroImage} alt="Subham Park Bongaigaon" />
+        </div>
+      </section>
+
+      <a href="#contact" className="mobile-sticky-cta">
+        <Phone size={18} />
+        Enquire Now
+      </a>
+    </>
   );
-}
+};
+
+export default Hero;
