@@ -1,140 +1,207 @@
-﻿import builderImg from "../assets/images/about-builder.jpeg";
+﻿import React from "react";
+import {
+  Building2,
+  Home,
+  Construction,
+  Users,
+  ShieldCheck,
+  Clock3,
+  Eye,
+  Handshake,
+  Landmark,
+} from "lucide-react";
+import "../App.css";
+import builderSketch from "../assets/images/builder-sketch.jpeg";
 
-export default function AboutBuilder() {
-  const leftPoints = [
-    {
-      icon: "◇",
-      title: "Quality That Defines Us",
-      text: "We use premium materials and follow rigorous quality standards at every step.",
-    },
-    {
-      icon: "🤝",
-      title: "Integrity In Every Step",
-      text: "Transparency, honesty, and ethical practices are the foundation of our work.",
-    },
-    {
-      icon: "👥",
-      title: "Experience You Can Trust",
-      text: "Years of expertise and a team of passionate professionals make us a name you can rely on.",
-    },
-    {
-      icon: "◷",
-      title: "Commitment That Delivers",
-      text: "We value your time and ensure every project is delivered on time, every time.",
-    },
-  ];
+class AboutBuilder extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeTab: "completed" };
+  }
 
-  const rightPoints = [
-    {
-      icon: "👤",
-      title: "Customer First",
-      text: "Your satisfaction is our top priority.",
-    },
-    {
-      icon: "⌂",
-      title: "Designed For Better Living",
-      text: "Thoughtful planning for comfortable and modern living.",
-    },
-    {
-      icon: "♧",
-      title: "Sustainable Approach",
-      text: "Eco-friendly practices for a greener and better future.",
-    },
-    {
-      icon: "↗",
-      title: "Value That Grows",
-      text: "Projects that offer long-term value and a brighter future.",
-    },
-  ];
+  setActiveTab = (tab) => {
+    this.setState({ activeTab: tab });
+  };
 
-  const stats = [
-    { icon: "✪", number: "15+", text: "Years of Experience" },
-    { icon: "▥", number: "25+", text: "Projects Completed" },
-    { icon: "👥", number: "5000+", text: "Happy Families" },
-    { icon: "⌖", number: "5+", text: "Cities Presence" },
-    { icon: "⌾", number: "100%", text: "Commitment to Quality" },
-  ];
+  render() {
+    const { activeTab } = this.state;
 
-  return (
-    <section id="about-builder" className="builder-section">
-      <div className="builder-container">
-        <div className="builder-main-grid">
-          <div className="builder-left">
-            <div className="builder-title-line">
+    const stats = [
+      { icon: <Building2 />, number: "16+", label: "Completed\nProjects" },
+      { icon: <Home />, number: "28Lac+", label: "Sq. Ft.\nConstructed" },
+      { icon: <Construction />, number: "15Lac+", label: "Sq. Ft.\nOngoing" },
+      { icon: <Users />, number: "6000+", label: "Happy\nResidents" },
+    ];
+
+    const projects = {
+      completed: {
+        title: "Completed Projects",
+        list: [
+          { name: "Subham Heights", location: "Kahilipara" },
+          { name: "Subham Enclave", location: "Hatigaon" },
+          { name: "Subham Park View", location: "Fatasil" },
+          { name: "Subham Elite", location: "Gandhibasti" },
+          { name: "Subham Classic", location: "Ambikagiri Nagar" },
+          { name: "Subham Manjushree", location: "Datalpara" },
+          { name: "Subham Regency", location: "Hengrabari" },
+          { name: "Subham Residency", location: "Kharguli" },
+        ],
+      },
+      ongoing: {
+        title: "Ongoing Projects",
+        list: [
+          { name: "Subham Garden", location: "Jorhat" },
+          { name: "Subham Solitaire", location: "Agartala" },
+          { name: "Subham Ashray", location: "Garal" },
+        ],
+      },
+      commercial: {
+        title: "Commercial Projects",
+        list: [
+          { name: "Subham Velocity", location: "Guwahati" },
+          { name: "Subham Redstone", location: "Downtown" },
+          { name: "Bijay Crescent", location: "PBCO" },
+          { name: "Subham Square", location: "Lokhra" },
+        ],
+      },
+    };
+
+    const values = [
+      { icon: <ShieldCheck />, label: "Quality\nConstruction" },
+      { icon: <Clock3 />, label: "Timely\nDelivery" },
+      { icon: <Eye />, label: "Transparent\nDealings" },
+      { icon: <Handshake />, label: "Customer\nFirst Approach" },
+    ];
+
+    return (
+      <section className="builder-section" id="about-builder">
+        <div className="builder-left">
+          <div className="builder-label">
+            <span></span>
+            <p>About The Developer</p>
+            <span></span>
+          </div>
+
+          <h2 className="builder-main-title">
+            Built on Trust. <br />
+            <span className="gold-text">Driven by Quality.</span>
+          </h2>
+
+          <p className="builder-desc">
+            With a strong legacy of delivering landmark residential and commercial
+            spaces, Subham Group continues to shape modern living with integrity,
+            innovation, and unmatched quality.
+          </p>
+
+          <div className="builder-sketch">
+            <img src={builderSketch} alt="Subham Group Sketch" />
+          </div>
+
+          <div className="builder-stats">
+            {stats.map((item, index) => (
+              <div className="builder-stat" key={index}>
+                <div className="builder-stat-icon">{item.icon}</div>
+                <h3>{item.number}</h3>
+                <p>{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="builder-left-note">
+            <div className="left-note-icon">
+              <Building2 />
+            </div>
+            <div className="note-text-content">
+              <p>
+                Building more than structures, <br />
+                we build <strong>trust</strong> for a better tomorrow.
+              </p>
+            </div>
+            <div className="left-note-dots"></div>
+          </div>
+        </div>
+
+        <div className="builder-right">
+          <div className="portfolio-label">
+            <span></span>
+            <p>Our Portfolio</p>
+            <span></span>
+          </div>
+
+          <h2 className="portfolio-main-title">
+            Crafting Landmarks.{" "}
+            <span className="gold-text">Creating Trust.</span>
+          </h2>
+
+          <div className="portfolio-tabs">
+            <button
+              type="button"
+              className={activeTab === "completed" ? "active" : ""}
+              onClick={() => this.setActiveTab("completed")}
+            >
+              <Landmark size={18} /> Completed Projects
+            </button>
+
+            <button
+              type="button"
+              className={activeTab === "ongoing" ? "active" : ""}
+              onClick={() => this.setActiveTab("ongoing")}
+            >
+              <Construction size={18} /> Ongoing Projects
+            </button>
+
+            <button
+              type="button"
+              className={activeTab === "commercial" ? "active" : ""}
+              onClick={() => this.setActiveTab("commercial")}
+            >
+              <Building2 size={18} /> Commercial Projects
+            </button>
+          </div>
+
+          <div className="portfolio-box">
+            <div className="portfolio-title-divider">
               <span></span>
-              <b>❦</b>
+              <h3>{projects[activeTab].title}</h3>
               <span></span>
             </div>
 
-            <p className="builder-label">About The Builders</p>
-
-            <h2>
-              Building Legacies.
-              <br />
-              <em>Crafting Futures.</em>
-            </h2>
-
-            <div className="builder-small-line">
-              <span></span>
-              <b>❧</b>
-              <span></span>
-            </div>
-
-            <p className="builder-desc">
-              At Subham Builders, we believe that every structure we build is
-              more than just concrete and steel — it's a promise of trust,
-              quality, and a better tomorrow.
-            </p>
-
-            <div className="builder-left-cards">
-              {leftPoints.map((item) => (
-                <div className="builder-left-card" key={item.title}>
-                  <div className="builder-left-icon">{item.icon}</div>
-                  <div>
-                    <h4>{item.title}</h4>
-                    <p>{item.text}</p>
+            <div className="single-project-grid">
+              {projects[activeTab].list.map((project, index) => (
+                <div className="builder-project-card" key={index}>
+                  <div className="builder-project-art">
+                    <Building2 />
                   </div>
+                  <h4>{project.name}</h4>
+                  <p>{project.location}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="builder-image-wrap">
-            <img src={builderImg} alt="Subham Builders" />
+          <div className="builder-quote-card">
+            <div className="builder-values">
+              {values.map((item, index) => (
+                <div className="builder-value" key={index}>
+                  <div className="val-icon-box">{item.icon}</div>
+                  <p>{item.label}</p>
+                </div>
+              ))}
+            </div>
 
-            <div className="builder-vision-card">
-              <div className="vision-leaf">❦</div>
-              <h3>Our Vision</h3>
+            <div className="quote-text-container">
+              <span className="quote-mark">“</span>
               <p>
-                To create exceptional spaces that enhance lives, build
-                communities, and stand as landmarks for generations to come.
+                We don’t just build structures, <br />
+                we build spaces where{" "}
+                <span className="gold-text-light">life flourishes.</span>
               </p>
             </div>
           </div>
-
-          <div className="builder-right-panel">
-            {rightPoints.map((item) => (
-              <div className="builder-right-point" key={item.title}>
-                <div className="builder-right-icon">{item.icon}</div>
-                <h4>{item.title}</h4>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </div>
         </div>
-
-        <div className="builder-stats-strip">
-          {stats.map((item) => (
-            <div className="builder-stat" key={item.text}>
-              <div className="builder-stat-icon">{item.icon}</div>
-              <div>
-                <strong>{item.number}</strong>
-                <p>{item.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
 }
+
+export default AboutBuilder;

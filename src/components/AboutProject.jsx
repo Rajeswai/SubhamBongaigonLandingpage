@@ -5,7 +5,9 @@ import aboutArtElevation from "../assets/images/aboutartelivation.jpeg";
 
 const AboutProject = () => {
   return (
-    <section className="about-project" id="aboutus">
+    // IMPORTANT: id অবশ্যই "about-project" হবে
+    // কারণ Navbar-এর Overview link = "#about-project"
+    <section className="about-project" id="about-project">
       <div className="about-image-card">
         <img src={aboutArtElevation} alt="Subham Park Art Elevation" />
       </div>
@@ -23,17 +25,17 @@ const AboutProject = () => {
         </div>
 
         <p>
-          Subham Park Bongaigaon is a premium residential development that brings
-          together contemporary architecture, thoughtful design, and world-class
-          amenities to create a lifestyle of comfort, convenience, and
-          sophistication.
+          Subham Park Bongaigaon is a premium residential development that
+          brings together contemporary architecture, thoughtful design, and
+          world-class amenities to create a lifestyle of comfort, convenience,
+          and sophistication.
         </p>
 
         <p>
           Every detail of our project reflects our commitment to quality,
           sustainability, and customer satisfaction. From spacious homes and
-          landscaped surroundings to modern amenities and excellent connectivity,
-          we ensure a living experience that truly stands apart.
+          landscaped surroundings to modern amenities and excellent
+          connectivity, we ensure a living experience that truly stands apart.
         </p>
 
         <div className="about-features">

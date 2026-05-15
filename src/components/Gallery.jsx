@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import "../App.css";
 
-import eveningView from "../assets/images/eveningview.jpeg";
+import eveningView from "../assets/images/eveningview.png";
 import mainEntrance from "../assets/images/mainentrance.jpeg";
 import kidsPlayArea from "../assets/images/kidsplayarea.jpeg";
 import lobbyLounge from "../assets/images/lobbylounge.jpeg";

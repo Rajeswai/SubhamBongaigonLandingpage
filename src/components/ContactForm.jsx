@@ -1,130 +1,68 @@
-﻿export default function ContactForm() {
+﻿import React from "react";
+import { User, Phone, Mail, Building, PenTool, ArrowRight } from "lucide-react";
+import "../App.css";
+
+const Contact = () => {
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-wrap">
-        <div className="contact-left">
-          <div className="contact-title-line">
-            <span></span>
-            <b>❦</b>
-            <span></span>
-          </div>
-
-          <p className="contact-label">Get In Touch</p>
-
-          <h2>
-            Let’s Build
-            <br />
-            <em>Something</em>
-            <br />
-            <em>Extraordinary.</em>
-          </h2>
-
-          <div className="contact-small-line">
-            <span></span>
-            <b>◆</b>
-            <span></span>
-          </div>
-
-          <p className="contact-intro">
-            Have a question or ready to start your dream project? We’d love to
-            hear from you. Reach out to us and our team will connect with you
-            shortly.
-          </p>
-
-          <div className="contact-info-list">
-            <div className="contact-info-item">
-              <div className="contact-info-icon">☎</div>
-              <div>
-                <h4>Phone</h4>
-                <p>9854641000</p>
-                <p>0361 234 2344</p>
-              </div>
-            </div>
-
-            <div className="contact-info-item">
-              <div className="contact-info-icon">✉</div>
-              <div>
-                <h4>Website</h4>
-                <p>subhamgroup.com</p>
-              </div>
-            </div>
-
-            <div className="contact-info-item">
-              <div className="contact-info-icon">⌖</div>
-              <div>
-                <h4>Site Address</h4>
-                <p>
-                  Subham Park, Near Durga Mandir, Gurunanak Nagar,
-                  Chapaguri Road, Bongaigaon, Assam - 783380
-                </p>
-              </div>
-            </div>
-
-            <div className="contact-info-item">
-              <div className="contact-info-icon">◷</div>
-              <div>
-                <h4>Office Address</h4>
-                <p>
-                  Subham Velocity, 5th Floor, Honuram Boro Path, Opposite
-                  Wallford, G.S Road, Guwahati - 781005
-                </p>
-              </div>
-            </div>
-          </div>
+    <section className="contact-premium-section" id="contact">
+      {/* LEFT SIDE - TEXT SECTION */}
+      <div className="contact-left">
+        <div className="contact-label">
+          <i></i>
+          <span>Get in Touch</span>
         </div>
+        <h2>
+          Let's Build <br />
+          <strong>Something Extraordinary</strong> Together.
+        </h2>
+        <p>
+          Share your requirements with us and our team will get back to you with the best solutions for your dream space.
+        </p>
+      </div>
 
-        <div className="contact-form-panel">
-          <h3>Send Us A Message</h3>
-
-          <div className="contact-form-line">
-            <span></span>
-            <b>◆</b>
-            <span></span>
+      {/* RIGHT SIDE - COMPACT FORM CARD */}
+      <div className="contact-form-card">
+        <h3>Tell Us About <strong>Your Requirement</strong></h3>
+        
+        <form>
+          <div className="form-row">
+            <div className="input-box">
+              <User />
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div className="input-box">
+              <Phone />
+              <input type="text" placeholder="Phone Number" required />
+            </div>
           </div>
 
-          <form className="contact-form">
-            <div className="contact-form-row">
-              <label>
-                <span>♙</span>
-                <input type="text" placeholder="Your Name" />
-              </label>
+          <div className="input-box">
+            <Mail />
+            <input type="email" placeholder="Your Email Address" required />
+          </div>
 
-              <label>
-                <span>✉</span>
-                <input type="email" placeholder="Your Email" />
-              </label>
-            </div>
+          <div className="input-box">
+            <Building />
+            <select required>
+              <option value="" disabled selected>I'm Interested In</option>
+              <option value="residential">Residential Projects</option>
+              <option value="commercial">Commercial Projects</option>
+              <option value="ongoing">Ongoing Projects</option>
+            </select>
+          </div>
 
-            <label>
-              <span>☎</span>
-              <input type="tel" placeholder="Your Phone" />
-            </label>
+          <div className="input-box textarea-box">
+            <PenTool />
+            <textarea placeholder="Tell us about your requirement..."></textarea>
+          </div>
 
-            <label>
-              <span>▦</span>
-              <select defaultValue="">
-                <option value="" disabled>
-                  Select Enquiry Type
-                </option>
-                <option>Book A Site Visit</option>
-                <option>Download Brochure</option>
-                <option>Price Details</option>
-                <option>Floor Plan Details</option>
-              </select>
-            </label>
-
-            <label className="message-field">
-              <span>✎</span>
-              <textarea placeholder="Your Message"></textarea>
-            </label>
-
-            <button type="submit">Send Message ✈</button>
-          </form>
-
-          <div className="contact-form-sketch"></div>
-          <div className="contact-gold-leaf">❧</div>
-        </div>
+          <button type="submit" className="contact-submit-btn">
+            Enquire Now <ArrowRight size={18} />
+          </button>
+        </form>
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

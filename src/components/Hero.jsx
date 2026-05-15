@@ -15,7 +15,8 @@ import heroImage from "../assets/images/herosectionimage.png";
 const Hero = () => {
   return (
     <>
-      <section className="hero" id="overview">
+      {/* Navbar er sathe mil rakhar jonno id="about-project" kora holo */}
+      <section className="hero" id="about-project">
         <div className="hero-leaf-bg"></div>
 
         <div className="hero-content">
