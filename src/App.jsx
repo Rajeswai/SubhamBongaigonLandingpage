@@ -6,10 +6,10 @@ import AboutProject from "./components/AboutProject";
 import Amenities from "./components/Amenities";
 import Walkthrough from "./components/Walkthrough";
 import Gallery from "./components/Gallery";
+import FloorPlans from "./components/FloorPlans";
 import LocationAdvantage from "./components/LocationAdvantage";
- import FloorPlans from "./components/FloorPlans";
-import AboutBuilder from "./components/AboutBuilder";
 import ContactForm from "./components/ContactForm";
+import AboutBuilder from "./components/AboutBuilder";
 import Footer from "./components/Footer";
 
 function App() {
@@ -24,10 +24,10 @@ function App() {
         <Amenities />
         <Walkthrough />
         <Gallery />
-         <LocationAdvantage /> 
-         <FloorPlans /> 
-        <AboutBuilder />
+        <FloorPlans />
+        <LocationAdvantage />
         <ContactForm />
+        <AboutBuilder />
       </main>
 
       <Footer />

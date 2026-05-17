@@ -71,10 +71,6 @@ class FloorPlans extends React.Component {
             <strong>Modern Living.</strong>
           </h2>
 
-          <p>
-            Explore thoughtfully designed floor plans crafted for comfort,
-            privacy, and everyday convenience.
-          </p>
         </div>
 
         <div className="floorplan-slider">

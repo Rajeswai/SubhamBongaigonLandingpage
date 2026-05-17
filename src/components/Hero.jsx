@@ -28,8 +28,8 @@ const Hero = () => {
 
           <h1>
             Step Into <br />
-            <strong>Spotlight</strong> <br />
-            of Modern Living
+            <strong>Spotlight of</strong> <br />
+            Modern Living
           </h1>
 
           <div className="hero-line">

@@ -14,8 +14,8 @@ const AboutProject = () => {
 
       <div className="about-content">
         <h2>
-          Crafted for Comfort. <br />
-          <span>Built for Life.</span>
+          Crafted for Comfort <br />
+          <span>Built for Life</span>
         </h2>
 
         <div className="about-line">

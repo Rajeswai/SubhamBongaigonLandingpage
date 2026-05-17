@@ -65,8 +65,8 @@ const Amenities = () => {
         </div>
 
         <h2>
-          Designed for Comfort. <br />
-          <strong>Built for Better Living.</strong>
+          Designed for Comfort <br />
+          <strong>Built for Better Living</strong>
         </h2>
 
         <div className="amenities-divider">
